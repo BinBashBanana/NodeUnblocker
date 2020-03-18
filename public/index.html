@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>​</title>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQAAAAA3bvkkAAAAAnRSTlMAAHaTzTgAAAAKSURBVAhbY2AAAAACAAFiQE9oAAAAAElFTkSuQmCC">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script src='//code.jquery.com/jquery-3.4.1.min.js' integrity='sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=' crossorigin='anonymous' type="cf2abb26126606a166f67ef5-text/javascript"></script>
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+	<body>
+		<style>
+			html{
+				font-size:12px;
+			}
+			a{
+				color:#6adcff;
+			}
+			body{
+				background-color:#F0FFF4;
+			}
+			#container{
+				color:#ffffff; 
+				margin:10px auto;
+				width:95%;
+				height:95vh;
+			}
+			.btn{
+				float:right;
+			}
+			.footer{
+				position:relative;
+				margin:0 auto;
+				text-align:center;
+			}
+			#url{
+				width:77%;
+			}
+			h1{font-size:3.2rem;}
+			h3{font-size:1.92rem;}
+			@media only screen and (min-width: 768px) {
+				#container{
+					width:80%;
+					height:auto;
+
+				}
+				h1{font-size:4.2rem;}
+				h3{font-size:2.92rem;}
+				#url{
+					width:85%;
+				}
+				html{
+					font-size:15px;
+				}
+				.btn{
+					float:none;
+				}
+			}
+		</style>
+		<script src='//code.jquery.com/jquery-3.4.1.min.js' integrity='sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=' crossorigin='anonymous'></script>
+		<iframe src="./>/microsoft.com" style="border: 0; position: fixed; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; z-index: 90; background-color: #fff; " id="rusic-modal" width="0" height="0"></iframe>
+		<script>
+		var cntrlIsPressed=false;
+		$(document).keydown(function(event) {
+			if (event.which == "17")
+				cntrlIsPressed = true;
+			else if (event.which == 77 && cntrlIsPressed) {
+			  if (document.getElementById('rusic-modal').style.display !== "none"){
+				  document.getElementById('rusic-modal').style.display="none";
+			  } else {
+				document.getElementById('rusic-modal').style.display="initial";
+			  }
+			  cntrlIsPressed=false;
+			} else {
+				cntrlIsPressed=false;
+			}
+		});
+		</script>
+		<div id="container" class="card-panel teal lighten-6">
+			<h1>Node Unblocker</h1>
+			<div id="error"></div>
+				<div class="row">
+				<form id="form" method="get">
+					<input class="input-field inline col s6" type="text" id="url" autocomplete="off" placeholder="URL" name="url" autofocus="autofocus" />
+					<input class='waves-effect waves-light btn' type="submit" value="Go" />
+				</form>
+				</div>
+				<h3>About Node Unblocker</h3>
+				<p>Node Unblocker is a web proxy, similar to CGIProxy, PHProxy, or Glype, that allows users to evade filters and censorship and access blocked websites. </p>
+				<p>It's designed to be extremely fast and compatible: It processes the data on-the-fly rather than buffering the entire response, and it only modifies URLs when necessary - relative ones will "just work". </p>
+				<p>Node Unblocker is written in JavaScript with <a href="http://nodejs.org">node.js</a>. The source code is <a href="https://github.com/titaniumnetwork-dev/material-unblocker">available on github</a>.</p>
+				<div class="footer">
+					<p><a href="https://github.com/nfriedly/node-unblocker">Node Unblocker</a> by <a href="http://www.nfriedly.com/" title="Node.js developer and JavaScript Expert">Nathan Friedly</a></p>
+				</div>
+			</div>
+		</div>
+		<script>
+		function $(id){
+		return document.getElementById(id);
+		}
+
+		$('form').onsubmit = function(){
+			var url = $('url').value;
+			if(url.substr(0,4) != "http"){
+				url = "http://" + url;
+			}
+			var ifra=document.createElement('iframe');
+			document.body.appendChild(ifra);
+			ifra.setAttribute('style','display:block; border: 0; position: fixed; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; z-index: 9; background-color: #fff;');
+			ifra.setAttribute('width','0');
+			ifra.setAttribute('height','0');
+			ifra.setAttribute('src','>/' + url);
+			return false;
+		};
+		function checkError(){
+		var search = window.location.search;
+		var start = search.indexOf('error=');
+		if(start > -1){
+		var stop = search.indexOf('&', start);
+		if(stop == -1){ stop = undefined; }
+		// +6 for "error="
+		var err = search.substr(start+6, stop);
+		var $error = $('error');
+		$error.innerText = $error.textContent = decodeURIComponent(err);
+		$error.style.display = "block";
+		}
+		}
+		window.onload = function() { 
+		$('url').focus(); 
+		checkError(); 
+		}
+		</script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+	</body>
+</html>
