@@ -39,7 +39,7 @@ function gcloak() { var link = document.querySelector("link[rel*='icon']") || do
 }
 
 var unblockerConfig = {
-    prefix: '/%3E/',
+    prefix: '/textbooks/',
  	responseMiddleware: [
 		injectScript
 	]
