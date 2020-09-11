@@ -1,8 +1,8 @@
-# Material Unblocker (Disguised as Google)
+# Node Unblocker (Disguised as Google)
 
 An improved version of nodeunblocker.com
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/BinBashBanana/material-unblocker)
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/BinBashBanana/NodeUnblocker)
 
 Usage: `https://example.com/textbooks/https://example.com`
 
